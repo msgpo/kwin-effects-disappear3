@@ -1,0 +1,4 @@
+File=disappear3.kcfg
+ClassName=Disappear3Config
+Singleton=true
+Mutators=true
