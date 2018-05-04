@@ -9,6 +9,14 @@
 For Arch Linux [kwin-effects-disappear3](https://aur.archlinux.org/packages/kwin-effects-disappear3/)
 is available in the AUR.
 
+### Fedora
+
+```sh
+sudo dnf copr enable zzag/kwin-effects
+sudo dnf refresh
+sudo dnf install kwin-effects-disappear3
+```
+
 ### From source
 
 ```sh
