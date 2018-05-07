@@ -17,6 +17,13 @@ sudo dnf refresh
 sudo dnf install kwin-effects-disappear3
 ```
 
+### Ubuntu
+
+```sh
+sudo add-apt-repository ppa:vladzzag/kwin-effects
+sudo apt install libkwin4-effect-disappear3
+```
+
 ### From source
 
 ```sh
