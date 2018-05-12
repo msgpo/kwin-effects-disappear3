@@ -17,7 +17,7 @@
             <max>1</max>
         </entry>
         <entry name="Distance" type="Double">
-            <default>-20</default>
+            <default>20</default>
         </entry>
     </group>
 </kcfg>
