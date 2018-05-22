@@ -20,18 +20,8 @@
 // KConfigSkeleton
 #include "disappear3config.h"
 
-// Qt
-#include <QtMath>
-
 namespace {
 const int Disappear3WindowRole = 0x22A98500;
-const qreal s_fov = qTan(qDegreesToRadians(30.0));
-
-inline qreal distanceToScale(qreal distance, qreal size)
-{
-    Q_ASSERT(size > 0);
-    return 1.0 - qMin(1.0, 2.0 * distance * s_fov / size);
-}
 }
 
 Disappear3Effect::Disappear3Effect()
@@ -64,9 +54,9 @@ void Disappear3Effect::reconfigure(ReconfigureFlags flags)
     m_blacklist = Disappear3Config::blacklist().toSet();
     m_duration = animationTime(Disappear3Config::duration() > 0
             ? Disappear3Config::duration()
-            : 120);
+            : 160);
     m_opacity = Disappear3Config::opacity();
-    m_distance = Disappear3Config::distance();
+    m_scale = Disappear3Config::scale();
 }
 
 void Disappear3Effect::prePaintScreen(KWin::ScreenPrePaintData& data, int time)
@@ -107,7 +97,7 @@ void Disappear3Effect::paintWindow(KWin::EffectWindow* w, int mask, QRegion regi
     if (it != m_animations.cend()) {
         const qreal t = (*it).value();
 
-        const qreal scale = distanceToScale(interpolate(0, m_distance, t), qMax(w->width(), w->height()));
+        const qreal scale = interpolate(1, m_scale, t);
 
         data.setXScale(scale);
         data.setYScale(scale);

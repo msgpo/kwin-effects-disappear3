@@ -16,8 +16,10 @@
             <min>0</min>
             <max>1</max>
         </entry>
-        <entry name="Distance" type="Double">
-            <default>20</default>
+        <entry name="Scale" type="Double">
+            <default>0.9</default>
+            <min>0</min>
+            <max>1</max>
         </entry>
     </group>
 </kcfg>
